@@ -1,12 +1,17 @@
 # Penman: Penetration test manager
 
-Keeps a pentester's notes and thoughts organized.
+Web-based system to keep a pentester's notes and thoughts organized.
 
 Features:
 * Manage networks and targets.
 * Add notes and screenshots to different phases of a pentest.
 * Add ideas and attack vectors to not forget them.
 * Add checklists to make sure not to forget important tests.
+
+This page describes the installation.
+The code can be found in the following repositories:
+* Frontend: https://github.com/naturtrunken/penman-frontend
+* Backend: https://github.com/naturtrunken/penman-backend
 
 # Installation
 
