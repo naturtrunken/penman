@@ -35,20 +35,20 @@ services:
     volumes:
       - ./postgres:/var/lib/postgresql/data
   backend:
-    image: penman-backend:latest
+    image: penman/penman-backend:latest
     ports:
       - "3000:3000"
     depends_on:
       - db
   frontend:
-    image: penman-frontend:latest
+    image: penman/penman-frontend:latest
     ports:
       - "8080:80"
     depends_on:
       - backend
 ```
 
-4. Execute `docker-compose up`
+4. Execute `docker-compose up` (make sure that the Docker daemon is running)
 5. You can now access Penman via `http://localhost:8080/`.
 
 ## Via source
