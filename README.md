@@ -15,9 +15,9 @@ Features:
 Prerequisites: Make sure that the Docker daemon is running.
 
 ```shell
-git clone https://github.com/naturtrunken/penman
-cd penman
-docker-compose up
+mkdir penman && cd penman
+wget https://raw.githubusercontent.com/naturtrunken/penman/main/docker-compose.yml
+docker-compose up # Or "docker compose up", depending how you installed compose.
 ```
 
 You can now access Penman via `http://localhost:8080/`.

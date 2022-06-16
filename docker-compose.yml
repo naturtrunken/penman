@@ -4,7 +4,6 @@ services:
   db:
     image: postgres
     restart: always
-    user: postgres
     environment:
      - POSTGRES_USER=penman
      - POSTGRES_PASSWORD=penman
