@@ -15,6 +15,7 @@
     },
     "register": {
       "title": "Register",
+      "hint": "Note: There is no email verification active.",
       "password_mismatch": "The passwords didn't matched. Please enter your password again.",
       "button": "Register now",
       "password_confirmation": "Password (again)",
