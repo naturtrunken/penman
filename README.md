@@ -10,8 +10,6 @@ Features:
 
 # Installation
 
-## Via Docker
-
 Prerequisites: Make sure that the Docker daemon is running.
 
 ```shell
@@ -22,9 +20,7 @@ docker-compose up # Or "docker compose up", depending how you installed compose.
 
 You can now access Penman via `http://localhost:8080/`.
 
-## Via source
-
-See [INSTALL.md](INSTALL.md)
+To install Penman via source, see [INSTALL.md](INSTALL.md)
 
 # License
 
