@@ -7,6 +7,7 @@ import {TranslateService} from "@ngx-translate/core";
 import {AppService} from "../app.service";
 import {TargetsResponse} from "../models/target";
 import {TargetService} from "../services/target.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -23,14 +24,26 @@ export class DashboardComponent implements OnInit {
     public appVarsService: AppVarsService,
     private translate: TranslateService,
     private appService: AppService,
+    private router: Router,
     public targetService: TargetService
   ) {
     this.appService.setPageTitle('dashboard.title');
   }
 
   ngOnInit(): void {
+    this.loadNetworks();
+  }
+
+  loadNetworks(): void {
+    let userId = sessionStorage.getItem('uuid') || "";
+    if (userId == "") {
+      console.error("No user id available, please log in first.");
+      this.router.navigateByUrl('/login');
+      return
+    }
+
     this.http.get<NetworksResponse>(
-      AppConst.BACKEND_NETWORKS_INDEX_PATH.replace(":user_id", sessionStorage.getItem('uuid') || ""),
+      AppConst.BACKEND_NETWORKS_INDEX_PATH.replace(":user_id", userId),
     ).subscribe((networkResp: NetworksResponse) => {
       this.networksResponse = networkResp;
 
