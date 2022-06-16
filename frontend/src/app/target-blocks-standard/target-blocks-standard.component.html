@@ -1,0 +1,38 @@
+<div [ngSwitch]="this.pageStatus">
+  <div *ngSwitchCase="httpResponseType.Open">{{'general.http_response_types.open' | translate}}</div>
+  <div *ngSwitchCase="httpResponseType.NotFound">
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.not_found' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchDefault>
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.default' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchCase="httpResponseType.Ok">
+    <div class="row mb-2">
+      <div class="col">
+        <h3>{{ 'target.tabs.' + this.phase | translate }}</h3>
+      </div>
+    </div>
+
+    <app-target-block-standard
+      *ngFor="let block of this.blocks.blocks"
+      [block]="block"
+      userId="{{this.userId}}"
+      networkId="{{this.networkId}}"
+      targetId="{{this.targetId}}"
+    ></app-target-block-standard>
+
+    <app-target-block-new
+      userId="{{this.userId}}"
+      networkId="{{this.networkId}}"
+      targetId="{{this.targetId}}"
+      phase="{{this.phase}}"
+      serviceId="{{this.serviceId}}"
+      (loadBlocks)="this.loadBlocks()"
+    ></app-target-block-new>
+
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<section class="section">
+  <div class="row mb-2">
+    <div class="col">
+      <h3>{{ 'target.timeline.title' | translate }}</h3>
+      <table class="table table-hover" *ngIf="this.timeline.timeline.length > 0">
+        <thead>
+        <th>{{'models.block.attributes.created_at' | translate}}</th>
+        <th>{{'general.phase' | translate}}</th>
+        <th>{{'models.service.one' | translate}}</th>
+        <th>{{'models.block.attributes.text' | translate}}</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let timelineEntry of this.timeline.timeline" class="block-{{timelineEntry.block.flag}}">
+          <td class="text-muted small text-end">
+            {{timelineEntry.block.created_at | date : "YYYY-MM-dd" }}<br/>
+            {{timelineEntry.block.created_at | date : "HH:mm:ss" }}
+          </td>
+          <td>{{ 'target.tabs.' + timelineEntry.block.phase | translate }}</td>
+          <td>
+            <span class="text-muted small" *ngIf="timelineEntry.service != null">
+            {{timelineEntry.service.port}}<br/>
+            </span>
+            {{timelineEntry.service ? timelineEntry.service.name : ''}}
+          </td>
+          <td>{{timelineEntry.block.text | slice:0:128}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

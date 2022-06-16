@@ -1,0 +1,88 @@
+<section class="section mb-4">
+  <div class="row">
+    <div class="col-8">
+      <h1>{{'models.network.other' | translate }}</h1>
+    </div>
+    <div class="col-4 text-end">
+      <a
+        [routerLink]="['/users', this.appVarsService.currentUser.id, 'networks', 'new']"
+        class="btn btn-outline-primary btn-sm pull-end">
+        <i-feather name="plus-circle"></i-feather>
+        {{'dashboard.add_network' | translate }}
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section mb-5" *ngFor="let network of this.networksResponse.networks">
+  <div class="row">
+    <div class="col-8">
+      <h2>{{ network.name }}</h2>
+    </div>
+    <div class="col-4 text-end">
+      <a
+        [routerLink]="['/users', this.appVarsService.currentUser.id, 'networks', network.id, 'edit']"
+        class="btn btn-outline-primary btn-sm me-2">
+        <i-feather name="edit-2"></i-feather>
+        {{'dashboard.edit_network' | translate }}
+      </a>
+      <a
+        [routerLink]="['/users', this.appVarsService.currentUser.id, 'networks', network.id, 'targets', 'new']"
+        class="btn btn-outline-primary btn-sm">
+        <i-feather name="plus-circle"></i-feather>
+        {{'dashboard.add_target' | translate }}
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+
+      <table class="table table-hover" *ngIf="network.targets && network.targets.length > 0; else noTarget">
+        <thead>
+        <tr>
+          <th>{{'models.target.attributes.name' | translate}}</th>
+          <th>{{'models.target.attributes.ip' | translate}}</th>
+          <th>{{'models.target.attributes.state' | translate}}</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let target of network.targets">
+            <td>{{target.name}}</td>
+            <td>{{target.ip}}</td>
+            <td>
+              <span
+                class="badge state-badge state-badge-small {{this.targetService.classForState(target.state)}}"
+                title="{{'target.toggle_state_hint' | translate}}"
+              >
+                {{ 'models.target.attributes.states.' + target.state | translate }}
+              </span>
+            </td>
+            <td class="text-end">
+              <a
+                [routerLink]="['/users', this.appVarsService.currentUser.id, 'networks', network.id, 'targets', target.id, 'edit']"
+                class="btn btn-outline-primary btn-sm me-2">
+                <i-feather name="edit-2"></i-feather>
+                {{'dashboard.edit_target' | translate }}
+              </a>
+              <a
+                [routerLink]="['/users', this.appVarsService.currentUser.id, 'networks', network.id, 'targets', target.id, 'show']"
+                class="btn btn-outline-primary btn-sm">
+                <i-feather name="eye"></i-feather>
+                {{'general.details' | translate }}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #noTarget>
+        <div class="alert alert-info" role="alert">
+          {{'dashboard.no_target' | translate}}
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</section>
+

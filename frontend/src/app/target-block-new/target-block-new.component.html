@@ -1,0 +1,33 @@
+<div class="card target-block-new-card">
+  <div class="card-header">
+    <h5 class="card-title">{{'target.block.new.title' | translate}}</h5>
+  </div>
+  <div class="card-body text-end">
+    <form [formGroup]="blockForm" (ngSubmit)="onSubmit()">
+      <textarea
+        name="text"
+        formControlName="text"
+        class="form-control w-100"
+        placeholder="{{'models.block.attributes.text' | translate}}"
+      ></textarea>
+      <textarea
+        name="text"
+        formControlName="output"
+        class="form-control w-100 mt-2"
+        placeholder="{{'models.block.attributes.output' | translate}}"
+      ></textarea>
+      <textarea
+        name="text"
+        formControlName="checklist_elements"
+        class="form-control w-100 mt-2"
+        placeholder="{{'models.block.attributes.checklist_elements' | translate}}"
+      ></textarea>
+      <file-upload formControlName="files" multiple="true"></file-upload>
+      <button
+        type="submit"
+        class="btn btn-primary mt-2"
+        name="btn"
+      >{{'target.block.new.button' | translate}}</button>
+    </form>
+  </div>
+</div>

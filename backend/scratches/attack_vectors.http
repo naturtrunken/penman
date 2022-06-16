@@ -1,0 +1,13 @@
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/x-www-form-urlencoded
+
+email=aaa@aaa.aaa&password=12345678
+
+### All attack vectors
+GET http://localhost:3000/api/v1/users/53979172-1251-4c48-ba3f-b38c035c425f/networks/0099a9d2-9030-4037-a92f-5f2c2606dbb8/targets/bc02eeee-0e7c-469c-ba9f-375d515f6721/attack_vectors
+Accept: application/json
+access-token: g4WXePjoKhlG7OQ44yvDHQ
+token-type: Bearer
+client: IKYeIyUOrgIaSTjPQn5vpQ
+expiry: 1653723965
+uid: aaa@aaa.aaa

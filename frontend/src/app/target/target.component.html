@@ -1,0 +1,117 @@
+<div [ngSwitch]="this.pageStatus">
+  <div *ngSwitchCase="httpResponseType.Open">{{'general.http_response_types.open' | translate}}</div>
+  <div *ngSwitchCase="httpResponseType.NotFound">
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.not_found' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchDefault>
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.default' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchCase="httpResponseType.Ok">
+
+    <section class="section">
+      <div class="row">
+        <div class="col-8">
+          <h1>
+            <span class="text-muted">{{currentNetwork.name }}</span>
+            {{currentTarget.name}}
+          </h1>
+          <div class="badge bg-secondary mb-2">{{currentTarget.ip}}</div>
+        </div>
+        <div class="col-4 text-end">
+          <div class="row">
+            <div class="col">
+              <span
+                class="badge state-badge state-badge-large {{this.targetService.classForState(currentTarget.state)}}"
+                (click)="this.increaseState()"
+                title="{{'target.toggle_state_hint' | translate}}">
+                {{ 'models.target.attributes.states.' + currentTarget.state | translate }}
+              </span>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <span class="text-muted timer-time">
+                {{this.totalTargetTime | date : "HH:mm:ss" }}
+              </span>
+              <br/>
+              <button
+                class="btn btn-sm btn-gray"
+                *ngIf="this.timerState == this.timeEntryState.stop"
+                (click)="this.toggleTargetTimer(this.timeEntryState[this.timeEntryState.start])"
+              >
+                <i-feather name="play"></i-feather>
+              </button>
+              <button
+                class="btn btn-sm btn-gray"
+                *ngIf="this.timerState == this.timeEntryState.start"
+                (click)="this.toggleTargetTimer(this.timeEntryState[this.timeEntryState.stop])"
+              >
+                <i-feather name="stop-circle"></i-feather>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="row mt-4">
+        <div class="col">
+
+          <ul ngbNav #nav="ngbNav" [(activeId)]="currentPhase" class="nav-tabs">
+            <li [ngbNavItem]="i" *ngFor="let phase of this.phases; let i = index">
+              <a ngbNavLink>{{phase.name}}</a>
+              <ng-template ngbNavContent>
+
+                <app-target-general
+                  *ngIf="phase.id == 'general'"
+                  userId="{{this.urlUserId}}"
+                  networkId="{{this.urlNetworkId}}"
+                  targetId="{{this.urlTargetId}}"
+                ></app-target-general>
+
+                <app-target-blocks-services
+                  *ngIf="phase.id == 'enumeration'"
+                  userId="{{this.urlUserId}}"
+                  networkId="{{this.urlNetworkId}}"
+                  targetId="{{this.urlTargetId}}"
+                  phase="{{phase.id}}"
+                ></app-target-blocks-services>
+
+                <app-target-blocks-standard
+                  *ngIf="phase.id != 'general' && phase.id != 'enumeration'"
+                  userId="{{this.urlUserId}}"
+                  networkId="{{this.urlNetworkId}}"
+                  targetId="{{this.urlTargetId}}"
+                  phase="{{phase.id}}"
+                ></app-target-blocks-standard>
+
+              </ng-template>
+
+            </li>
+
+            <li [ngbNavItem]="5">
+              <a ngbNavLink>{{'target.tabs.timeline' | translate}}</a>
+              <ng-template ngbNavContent>
+
+                <app-target-timeline
+                  userId="{{this.urlUserId}}"
+                  networkId="{{this.urlNetworkId}}"
+                  targetId="{{this.urlTargetId}}"
+                ></app-target-timeline>
+              </ng-template>
+
+            </li>
+
+          </ul>
+          <div [ngbNavOutlet]="nav" class="mt-3"></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>

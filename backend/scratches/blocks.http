@@ -1,0 +1,13 @@
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/x-www-form-urlencoded
+
+email=aaa@aaa.aaa&password=12345678
+
+### All blocks
+GET http://localhost:3000/api/v1/users/53979172-1251-4c48-ba3f-b38c035c425f/networks/0099a9d2-9030-4037-a92f-5f2c2606dbb8/targets/bc02eeee-0e7c-469c-ba9f-375d515f6721/blocks?phase=2&service_id=24f7ae2b-565b-48ee-aad3-f2563223a4ef
+Accept: application/json
+access-token: t4mSMlpBbZ7C_H658F2-_Q
+token-type: Bearer
+client: uuurAy5RypowiG60UjwmJQ
+expiry: 1654426953
+uid: aaa@aaa.aaa

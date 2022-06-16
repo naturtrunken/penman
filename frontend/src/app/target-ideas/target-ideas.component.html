@@ -1,0 +1,66 @@
+<div [ngSwitch]="this.pageStatus">
+  <div *ngSwitchCase="httpResponseType.Open">{{'general.http_response_types.open' | translate}}</div>
+  <div *ngSwitchCase="httpResponseType.NotFound">
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.not_found' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchDefault>
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.default' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchCase="httpResponseType.Ok">
+    <div class="row mb-2">
+      <div class="col">
+        <h3>{{'models.idea.other' | translate}}</h3>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col">
+        <form [formGroup]="this.ideaForm" (ngSubmit)="onSubmit()">
+          <table class="table table-hover" id="idea-table">
+            <thead>
+            <th>{{ 'models.service.one' | translate }}</th>
+            <th>{{ 'models.idea.attributes.text' | translate }}</th>
+            <th></th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let idea_response of this.ideas.ideas" id="idea-row-{{idea_response.idea.id}}">
+              <td class="{{idea_response.idea.tried ? 'tried-row' : ''}}">
+                {{idea_response.service ? idea_response.service.name : ''}}
+              </td>
+              <td class="{{idea_response.idea.tried ? 'tried-row' : ''}}">
+                {{idea_response.idea.text}}
+              </td>
+              <td class="text-end">
+                <a class="delete-button me-4" type="button" (click)="this.deleteIdea(idea_response)" *ngIf="idea_response.idea.tried">
+                  <i-feather name="trash"></i-feather>
+                </a>
+                <a class="flag-button" type="button" (click)="this.toggleTried(idea_response)">
+                  <i-feather name="{{idea_response.idea.tried ? 'x' : 'check'}}"></i-feather>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ng-select formControlName="serviceId">
+                  <ng-option *ngFor="let service of this.services.services" [value]="service.id">{{service.name}}</ng-option>
+                </ng-select>
+              </td>
+              <td>
+                <input type="text" class="form-control" formControlName="text"
+                       [placeholder]="'models.idea.attributes.text' | translate">
+              </td>
+              <td>
+                <button class="btn float-end btn-primary" [innerHTML]="'general.add' | translate"
+                        type="submit"></button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

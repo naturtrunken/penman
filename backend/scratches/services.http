@@ -1,0 +1,29 @@
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/x-www-form-urlencoded
+
+email=aaa@aaa.aaa&password=12345678
+
+### All services
+GET http://localhost:3000/api/v1/users/53979172-1251-4c48-ba3f-b38c035c425f/networks/0099a9d2-9030-4037-a92f-5f2c2606dbb8/targets/f4d1195c-1fcb-4a54-9ccb-2305b37de432/services
+Accept: application/json
+access-token: MJF4jlMDWzA83PNneHpYcQ
+token-type: Bearer
+client: zhtj_FQ9r-74aStZhggukA
+expiry: 1653412383
+uid: aaa@aaa.aaa
+
+### Create a service
+POST http://localhost:3000/api/v1/users/53979172-1251-4c48-ba3f-b38c035c425f/networks/0099a9d2-9030-4037-a92f-5f2c2606dbb8/targets/f4d1195c-1fcb-4a54-9ccb-2305b37de432/services
+Accept: application/json
+Content-Type: application/json
+access-token: 9X9VUz_OKvNVvEd-Bz2kxw
+token-type: Bearer
+client: J7B8f5lPFG1Mz3GUVUtkQA
+expiry: 1653424335
+uid: aaa@aaa.aaa
+
+{
+  "name":  "Ss2",
+  "port": "3545",
+  "protocol": "udp"
+}

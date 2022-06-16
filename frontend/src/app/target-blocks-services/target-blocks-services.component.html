@@ -1,0 +1,53 @@
+<div class="d-flex">
+  <ul ngbNav #nav="ngbNav" [(activeId)]="currentService" class="nav-pills" orientation="vertical">
+    <li ngbNavItem="general">
+      <a ngbNavLink>{{'target.block.services.general' | translate}}</a>
+      <ng-template ngbNavContent>
+
+        <app-target-blocks-standard
+          userId="{{this.userId}}"
+          networkId="{{this.networkId}}"
+          targetId="{{this.targetId}}"
+          phase="{{phase}}"
+          serviceId="none"
+        ></app-target-blocks-standard>
+
+      </ng-template>
+    </li>
+    <li ngbNavItem="services">
+      <a ngbNavLink>{{'target.block.services.services' | translate}}</a>
+      <ng-template ngbNavContent>
+
+        <app-target-blocks-services-form
+          userId="{{this.userId}}"
+          networkId="{{this.networkId}}"
+          targetId="{{this.targetId}}"
+          (loadParentServices)="this.loadServices()"
+        ></app-target-blocks-services-form>
+
+      </ng-template>
+    </li>
+
+    <li ngbNavItem="service-{{service.id}}" *ngFor="let service of this.services.services">
+      <a ngbNavLink>
+        <span class="small">{{service.port}}</span>
+        <br/>
+        {{service.name}}
+      </a>
+      <ng-template ngbNavContent>
+
+        <app-target-blocks-standard
+          userId="{{this.userId}}"
+          networkId="{{this.networkId}}"
+          targetId="{{this.targetId}}"
+          phase="{{phase}}"
+          serviceId="{{service.id}}"
+        ></app-target-blocks-standard>
+
+      </ng-template>
+    </li>
+
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="ms-4 flex-grow-1"></div>
+</div>

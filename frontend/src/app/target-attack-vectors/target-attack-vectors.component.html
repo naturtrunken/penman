@@ -1,0 +1,66 @@
+<div [ngSwitch]="this.pageStatus">
+  <div *ngSwitchCase="httpResponseType.Open">{{'general.http_response_types.open' | translate}}</div>
+  <div *ngSwitchCase="httpResponseType.NotFound">
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.not_found' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchDefault>
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.default' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchCase="httpResponseType.Ok">
+    <div class="row mb-2">
+      <div class="col">
+        <h3>{{'models.attack_vector.other' | translate}}</h3>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col">
+        <form [formGroup]="attackVectorForm" (ngSubmit)="onSubmit()">
+          <table class="table table-hover" id="attack_vectors-table">
+            <thead>
+            <th>{{ 'models.service.one' | translate }}</th>
+            <th>{{ 'models.attack_vector.attributes.text' | translate }}</th>
+            <th></th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let attack_vector_response of this.attackVectors.attack_vectors" id="attack-vector-row-{{attack_vector_response.attack_vector.id}}">
+              <td class="{{attack_vector_response.attack_vector.tried ? 'tried-row' : ''}}">
+                {{attack_vector_response.service ? attack_vector_response.service.name : ''}}
+              </td>
+              <td class="{{attack_vector_response.attack_vector.tried ? 'tried-row' : ''}}">
+                {{attack_vector_response.attack_vector.text}}
+              </td>
+              <td class="text-end">
+                <a class="delete-button me-4" type="button" (click)="this.deleteAttackVector(attack_vector_response)" *ngIf="attack_vector_response.attack_vector.tried">
+                  <i-feather name="trash"></i-feather>
+                </a>
+                <a class="flag-button" type="button" (click)="this.toggleTried(attack_vector_response)">
+                  <i-feather name="{{attack_vector_response.attack_vector.tried ? 'x' : 'check'}}"></i-feather>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <ng-select formControlName="serviceId">
+                  <ng-option *ngFor="let service of this.services.services" [value]="service.id">{{service.name}}</ng-option>
+                </ng-select>
+              </td>
+              <td>
+                <input type="text" class="form-control" formControlName="text"
+                       [placeholder]="'models.attack_vector.attributes.text' | translate">
+              </td>
+              <td>
+                <button class="btn float-end btn-primary" [innerHTML]="'general.add' | translate"
+                        type="submit"></button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

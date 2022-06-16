@@ -1,0 +1,38 @@
+<div class="card" id="auth-card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h4 [innerHTML]="'auth.register.title' | translate" class="mb-4"></h4>
+
+        <div *ngIf="isRegistered; else registerFormTemplate" class="alert alert-success" [innerHTML]="'auth.register.success' | translate">
+        </div>
+
+        <ng-template #registerFormTemplate>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <input type="email" class="form-control mb-4" formControlName="email"
+                   [placeholder]="'auth.login.email' | translate">
+            <input type="password" class="form-control mb-4" formControlName="password"
+                   [placeholder]="'auth.login.password' | translate">
+            <input type="password" class="form-control mb-4" formControlName="password_confirmation"
+                   [placeholder]="'auth.register.password_confirmation' | translate">
+            <button class="btn float-end btn-primary" [innerHTML]="'auth.register.button' | translate"
+                    type="submit"></button>
+          </form>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col">
+        <hr/>
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="col">
+        <a [innerHTML]="'auth.register.back_to_login' | translate" [routerLink]="'/login'"></a>
+      </div>
+    </div>
+
+  </div>
+</div>

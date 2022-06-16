@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title mb-0">{{'models.api_key.one' | translate }}</h4>
+  </div>
+  <div class="card-body">
+    <p>{{'settings.sections.api_key.text' | translate }}</p>
+    <div class="alert alert-info mt-2" role="alert" *ngIf="this.show_changed_api_key_alert">
+      {{'settings.sections.api_key.recreate_hint' | translate}}
+    </div>
+
+    <input type="text" disabled="disabled" name="api_key" id="api_key"
+           class="form-control" value="{{this.api_key}}" />
+    <button class="btn btn-danger mt-2" (click)="this.recreateApiKey()">
+      {{'settings.sections.api_key.recreate_button' | translate}}
+    </button>
+
+  </div>
+</div>

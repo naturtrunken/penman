@@ -1,0 +1,63 @@
+<div [ngSwitch]="this.pageStatus">
+  <div *ngSwitchCase="httpResponseType.Open">{{'general.http_response_types.open' | translate}}</div>
+  <div *ngSwitchCase="httpResponseType.NotFound">
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.not_found' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchDefault>
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.default' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchCase="httpResponseType.Ok">
+    <div class="row mb-2">
+      <div class="col">
+        <h3>{{ 'target.block.services.services' | translate }}</h3>
+      </div>
+    </div>
+
+    <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+      <table class="table table-hover" id="services-table">
+        <thead>
+        <th>{{ 'models.service.attributes.protocol' | translate }}</th>
+        <th>{{ 'models.service.attributes.port' | translate }}</th>
+        <th>{{ 'models.service.attributes.name' | translate }}</th>
+        <th></th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let service of this.services.services" id="service-row-{{service.id}}">
+          <td>{{service.protocol}}</td>
+          <td>{{service.port}}</td>
+          <td>{{service.name}}</td>
+          <td class="text-end">
+            <a class="delete-button" type="button" (click)="this.deleteService(service)">
+              <i-feather name="trash"></i-feather>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <ng-select class="form-control" formControlName="protocol">
+              <ng-option *ngFor="let protocol of this.protocols; let i = index" [value]="protocol">{{protocol}}</ng-option>
+            </ng-select>
+          </td>
+          <td>
+            <input type="number" class="form-control" formControlName="port"
+                   [placeholder]="'models.service.attributes.port' | translate">
+          </td>
+          <td>
+            <input type="text" class="form-control" formControlName="name"
+                   [placeholder]="'models.service.attributes.name' | translate">
+          </td>
+          <td>
+            <button class="btn float-end btn-primary" [innerHTML]="'general.add' | translate"
+                    type="submit"></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+
+  </div>
+</div>

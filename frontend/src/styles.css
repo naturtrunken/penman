@@ -1,0 +1,113 @@
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+@font-face {
+  font-family: 'MontserratSemiBold';
+  font-weight: 500;
+  src: url('/assets/fonts/Montserrat-SemiBold.ttf') format('truetype');
+}
+
+/* Text and links */
+a, a:visited, a:hover, a:active {
+  text-decoration: none !important;
+}
+
+.navbar-brand,
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'MontserratSemiBold', sans-serif;
+}
+
+#auth-card {
+  margin: 0 auto;
+  width: 40em;
+}
+
+.block {
+  border-bottom: 1px solid #ddd;
+}
+
+.target-block-new-card textarea {
+  height: 10em;
+}
+
+.delete-button {
+  color: #f77;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.delete-button:hover {
+  color: #b00;
+  opacity: 1;
+}
+
+.flag-button {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.flag-button:hover {
+  opacity: 1;
+}
+
+.block-info {
+  background-color: #c6fff5;
+}
+.block-user {
+  background-color: #fff7c0;
+}
+.block-root {
+  background-color: #a6eaa0;
+}
+
+.raw-output {
+  color: #aa28b2;
+}
+
+.btn-gray {
+  background-color: #eee;
+}
+.btn-gray:hover {
+  background-color: #ccc;
+}
+
+.tried-row {
+  text-decoration: line-through;
+}
+
+.state-badge-large {
+  font-size: 1.8em;
+}
+
+.state-badge-small {
+  font-size: 1em;
+}
+.state-badge {
+  font-family: 'MontserratSemiBold', sans-serif;
+  cursor: pointer;
+}
+
+.block-file-list {
+  padding-left: 0;
+  list-style-type: none;
+}
+.block-file-list li,
+.block-image-list-item {
+  border: 1px solid #aaa;
+  padding: 0.25em;
+  display: inline-table;
+  margin-right: 1em;
+  cursor: pointer;
+}
+.block-file-list li:hover,
+.block-image-list-item:hover {
+  border: 1px solid #aa28b2;
+}
+
+.block-file-placeholder {
+  display: flex;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  align-items: center;
+}
+
+.timer-time {
+  font-size: 1.5em;
+}

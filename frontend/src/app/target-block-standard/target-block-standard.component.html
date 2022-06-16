@@ -1,0 +1,75 @@
+<div class="block mb-3 pb-3 block-{{block.flag}} p-2" id="block-{{block.id}}">
+  <div class="row">
+    <div class="col-8 text-muted small mb-1">
+      {{block.created_at | date : "YYYY-MM-dd HH:mm:ss"}}
+    </div>
+    <div class="col-4 text-end">
+      <a class="flag-button me-2" (click)="this.updateBlock(block, 'info')"
+         title="{{'target.block.standard.toggle_info_flag' | translate}}">
+        <i-feather name="eye"></i-feather>
+      </a>
+      <a class="flag-button me-2" (click)="this.updateBlock(block, 'user')"
+         title="{{'target.block.standard.toggle_user_flag' | translate}}">
+        <i-feather name="user"></i-feather>
+      </a>
+      <a class="flag-button me-4" (click)="this.updateBlock(block, 'root')"
+         title="{{'target.block.standard.toggle_root_flag' | translate}}">
+        <i-feather name="hash"></i-feather>
+      </a>
+      <a class="delete-button" (click)="this.deleteBlock(block)">
+        <i-feather name="trash"></i-feather>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      {{block.text}}
+    </div>
+  </div>
+  <div class="row mt-2" *ngIf="block.output && block.output.length > 0">
+    <div class="col raw-output">
+      <pre>{{block.output}}</pre>
+    </div>
+  </div>
+  <div class="row mt-2" *ngIf="this.galleryItems && this.galleryItems.length > 0">
+    <div class="col">
+      <div class="block-image-list">
+        <div class="block-image-list-item"
+             *ngFor="let item of this.galleryItems; let i = index"
+             (click)="lightbox.open(i)">
+          <img [src]="item.data.thumb" class="d-inline" alt="Block image">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2" *ngIf="block.block_checklist_elements && block.block_checklist_elements.length > 0">
+    <div class="col">
+      <div class="row" *ngFor="let checklistElement of block.block_checklist_elements">
+        <div class="col">
+          <input
+            type="checkbox"
+            id="block-checkbox-{{checklistElement.id}}"
+            value="{{checklistElement.id}}"
+            class="me-2"
+            [checked]="checklistElement.checked"
+            (click)="this.toggleCheckbox(checklistElement)"
+          />
+          <label for="{{checklistElement.id}}">{{checklistElement.value}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2" *ngIf="block.block_files && block.block_files.length > 0">
+    <div class="col">
+      <ul class="block-file-list">
+        <li *ngFor="let blockFile of block.block_files">
+          <a href="{{this.BACKEND_URL + blockFile.path}}">
+            <div [ngStyle]="{'height.px': this.FILE_UPLOAD_PREVIEW_HEIGHT_PX}" class="block-file-placeholder">
+              {{blockFile.name}}
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

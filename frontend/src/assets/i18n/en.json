@@ -1,0 +1,209 @@
+{
+  "auth": {
+    "login": {
+      "title": "Log in",
+      "email": "Email",
+      "password": "Password",
+      "button": "Log in",
+      "incomplete_form": "Please enter email and password.",
+      "failed": "Could not login. Please verify your email and password.",
+      "please_login": "Please log in (again).",
+      "register_block": {
+        "title": "New here?",
+        "button": "Register now"
+      }
+    },
+    "register": {
+      "title": "Register",
+      "password_mismatch": "The passwords didn't matched. Please enter your password again.",
+      "button": "Register now",
+      "password_confirmation": "Password (again)",
+      "success": "The registration was successful. You can now login.",
+      "back_to_login": "You already have an account?"
+    },
+    "service": {
+      "login": {
+        "success": "You are logged in."
+      },
+      "logout": {
+        "success": "Bye!"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Networks",
+    "add_network": "Add network",
+    "edit_network": "Edit network",
+    "add_target": "Add target",
+    "edit_target": "Edit target",
+    "no_target": "There is no target in this network yet."
+  },
+  "general": {
+    "save": "Save",
+    "add": "Add",
+    "delete": "Delete",
+    "deleted": "Deleted",
+    "updated": "Updated",
+    "created": "Created",
+    "details": "Details",
+    "incomplete_form": "Please add values in all fields",
+    "http_response_types": {
+      "open": "Loading page...",
+      "not_found": "Object not found. Maybe you have to log in.",
+      "default": "An error occurred. Please be so kind and inform us."
+    },
+    "back": "← Back",
+    "general_error": "An error occurred.",
+    "phase": "Phase",
+    "phases": "Phases",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "confirm_destroy": "Delete confirmation",
+    "confirm_destroy_ok_button": "Yes, please delete"
+  },
+  "idea": {
+    "destroy_confirmation_text": "Should this idea really be deleted?"
+  },
+  "layout": {
+    "header": {
+      "login": "Login",
+      "logout": "Logout"
+    }
+  },
+  "models": {
+    "attack_vector": {
+      "one": "Attack vector",
+      "other": "Attack vectors",
+      "attributes": {
+        "text": "Software/Framework/Version/..."
+      }
+    },
+    "api_key": {
+      "one": "Api key",
+      "other": "Api keys",
+      "attributes": {
+        "value": "Key"
+      }
+    },
+    "block": {
+      "one": "Block",
+      "other": "Blocks",
+      "attributes": {
+        "text": "Text",
+        "output": "Raw output",
+        "checklist_elements": "Checklist elements - each line is converted into a checkbox",
+        "created_at": "Timestamp"
+      },
+      "errors": {
+        "text": {
+          "missing": "Please enter a text"
+        }
+      }
+    },
+    "idea": {
+      "one": "Idea",
+      "other": "Ideas",
+      "attributes": {
+        "text": "Note"
+      }
+    },
+    "network": {
+      "one": "Network",
+      "other": "Networks",
+      "attributes": {
+        "name": "Name"
+      },
+      "errors": {
+        "name": {
+          "missing": "Please enter a name for the network."
+        }
+      }
+    },
+    "target": {
+      "one": "Target",
+      "other": "Targets",
+      "attributes": {
+        "name": "Name",
+        "ip": "IP",
+        "state": "State",
+        "states": {
+          "s_new": "New",
+          "s_open": "Open",
+          "s_user": "User",
+          "s_root": "Root"
+        }
+      },
+      "errors": {
+        "name": {
+          "missing": "Please enter a name for the target."
+        }
+      }
+    },
+    "service": {
+      "one": "Service",
+      "other": "Services",
+      "attributes": {
+        "name": "Name",
+        "protocol": "Protocol",
+        "port": "Port"
+      }
+    }
+  },
+  "network": {
+    "form": {
+      "new_title": "New network",
+      "edit_title": "Edit network",
+      "destroy_confirmation_text": "Should this network and all its targets really be deleted? This action cannot be undone and will also delete all nested objects - all targets and all nested objects (blocks, images, files, services, ...) within this network as well."
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "sections": {
+      "api_key": {
+        "text": "You can use this API key to make direct backend calls to create / add targets or services.",
+        "recreate_button": "Recreate",
+        "recreated": "Your API key was recreated.",
+        "recreate_hint": "Don't forget to update the api_vars file!"
+      }
+    }
+  },
+  "target": {
+    "toggle_state_hint": "Click to loop through the state.",
+    "attack_vectors": {
+      "general_title": "General notes",
+      "destroy_confirmation_text": "Should this attack vector really be deleted?"
+    },
+    "form": {
+      "new_title": "New target",
+      "edit_title": "Edit target",
+      "destroy_confirmation_text": "Should this target really be deleted? This action cannot be undone and will also delete all nested objects (blocks, images, files, services, ...) as well."
+    },
+    "tabs": {
+      "general": "General",
+      "osint": "OSInt",
+      "enumeration": "Enumeration",
+      "privilege_escalation": "Privilege escalation",
+      "post_exploitation": "Post exploitation",
+      "timeline": "Timeline"
+    },
+    "block": {
+      "new": {
+        "title": "Add block",
+        "button": "Add block"
+      },
+      "standard": {
+        "toggle_info_flag": "Toggle info flag",
+        "toggle_user_flag": "Toggle user flag",
+        "toggle_root_flag": "Toggle root flag",
+        "destroy_confirmation_text": "Should this block (with all images and files as well) really be deleted?"
+      },
+      "services": {
+        "general": "General",
+        "services": "Services"
+      }
+    },
+    "timeline": {
+      "title": "Timeline"
+    }
+  }
+}

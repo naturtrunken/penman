@@ -1,2 +1,8 @@
 # Jetbrains IDE files
 .idea
+
+# Postgres dir, created by docker-compose
+postgres
+
+# Build script
+build_docker.sh

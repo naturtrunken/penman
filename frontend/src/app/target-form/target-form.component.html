@@ -1,0 +1,42 @@
+<div [ngSwitch]="this.pageStatus">
+  <div *ngSwitchCase="httpResponseType.Open">{{'general.http_response_types.open' | translate}}</div>
+  <div *ngSwitchCase="httpResponseType.NotFound">
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.not_found' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchDefault>
+    <div class="alert alert-danger" role="alert">
+      {{'general.http_response_types.default' | translate}}
+    </div>
+  </div>
+  <div *ngSwitchCase="httpResponseType.Ok">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <form [formGroup]="targetForm" (ngSubmit)="onSubmit()">
+              <h4 [innerHTML]="'target.form.' + (this.urlTargetId ? 'edit': 'new') + '_title' | translate" class="mb-4"></h4>
+
+              <input type="text" class="form-control mb-4" formControlName="name"
+                     [placeholder]="'models.target.attributes.name' | translate">
+
+              <input type="text" class="form-control mb-4" formControlName="ip"
+                     [placeholder]="'models.target.attributes.ip' | translate">
+
+              <button class="btn btn-gray" [innerHTML]="'general.back' | translate"
+                      type="button" (click)="this.back()"></button>
+              <button class="btn float-end btn-primary" [innerHTML]="'general.save' | translate"
+                      type="submit"></button>
+              <button class="btn btn-danger float-end me-3" [innerHTML]="'general.delete' | translate"
+                      type="button" (click)="this.deleteTarget()"></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,36 @@
+<div class="card" id="auth-card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <h4 [innerHTML]="'auth.login.title' | translate" class="mb-4"></h4>
+
+          <input type="email" class="form-control mb-4" formControlName="email"
+                 [placeholder]="'auth.login.email' | translate">
+          <input type="password" class="form-control mb-4" formControlName="password"
+                 [placeholder]="'auth.login.password' | translate">
+
+          <button class="btn float-end btn-primary" [innerHTML]="'auth.login.button' | translate"
+                  type="submit"></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row mt-2 mb-2">
+      <div class="col">
+        <hr/>
+      </div>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col-6">
+        <h4 [innerHTML]="'auth.login.register_block.title' | translate"></h4>
+      </div>
+      <div class="col-6">
+        <a class="btn float-end btn-primary" [innerHTML]="'auth.login.register_block.button' | translate" [routerLink]="'/register'"></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+

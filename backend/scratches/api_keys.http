@@ -1,0 +1,23 @@
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/x-www-form-urlencoded
+
+email=aaa@aaa.aaa&password=12345678
+
+### Create a new api key
+POST http://localhost:3000/api/v1/users/53979172-1251-4c48-ba3f-b38c035c425f/api_key
+Accept: application/json
+access-token: EerPWQ6OsjgrJ1cKtSxLbQ
+token-type: Bearer
+client: yZEK5BPtloTxh8Z_w5VHWg
+expiry: 1653593690
+uid: aaa@aaa.aaa
+
+
+### Read a new api key
+GET http://localhost:3000/api/v1/users/53979172-1251-4c48-ba3f-b38c035c425f/api_key
+Accept: application/json
+access-token: tJe-n6cEhjNAuchRlsrGIQ
+token-type: Bearer
+client: DVjk06b4VZbDN3nyVFPt3A
+expiry: 1653594144
+uid: aaa@aaa.aaa

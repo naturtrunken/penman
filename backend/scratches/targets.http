@@ -1,0 +1,22 @@
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/x-www-form-urlencoded
+
+email=aaa@aaa.aaa&password=12345678
+
+### All targets
+GET http://localhost:3000/api/v1/users/53979172-1251-4c48-ba3f-b38c035c425f/networks/0099a9d2-9030-4037-a92f-5f2c2606dbb8/targets
+Accept: application/json
+access-token: VN4IHDV8P_wgt0MBZCIVfQ
+token-type: Bearer
+client: a7-zjZSKBwJuGM8q_Fbyiw
+expiry: 1653673173
+uid: aaa@aaa.aaa
+
+### Timeline
+GET http://localhost:3000/api/v1/users/53979172-1251-4c48-ba3f-b38c035c425f/networks/0099a9d2-9030-4037-a92f-5f2c2606dbb8/targets/f4d1195c-1fcb-4a54-9ccb-2305b37de432/timeline
+Accept: application/json
+access-token: YjskC8PsJQMuKr_PTuWJ-Q
+token-type: Bearer
+client: R7cEEHbJ4t9_IVr9qfbG9Q
+expiry: 1653498962
+uid: aaa@aaa.aaa

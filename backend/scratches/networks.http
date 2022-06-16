@@ -1,0 +1,37 @@
+POST http://localhost:3000/api/auth/sign_in
+Content-Type: application/x-www-form-urlencoded
+
+email=aaa@aaa.aaa&password=12345678
+
+### All networks
+GET http://localhost:3000/api/v1/users/53979172-1251-4c48-ba3f-b38c035c425f/networks
+Accept: application/json
+access-token: 3GG5lQel_PJ-5PDEYJxe6g
+token-type: Bearer
+client: ucbrNjyz6V2E0pfHqsM_bQ
+expiry: 1653218241
+uid: aaa@aaa.aaa
+
+### Create a network
+POST http://localhost:3000/api/v1/users/53979172-1251-4c48-ba3f-b38c035c425f/networks
+Accept: application/json
+Content-Type: application/json
+access-token: 3GG5lQel_PJ-5PDEYJxe6g
+token-type: Bearer
+client: ucbrNjyz6V2E0pfHqsM_bQ
+expiry: 1653218241
+uid: aaa@aaa.aaa
+
+{
+  "name":  "Netz 2"
+}
+
+
+### One network
+GET http://localhost:3000/api/v1/users/53979172-1251-4c48-ba3f-b38c035c425f/networks/2f60cf47-98b4-40f3-8fa5-9f317f1c0025
+Accept: application/json
+access-token: 3GG5lQel_PJ-5PDEYJxe6g
+token-type: Bearer
+client: ucbrNjyz6V2E0pfHqsM_bQ
+expiry: 1653218241
+uid: aaa@aaa.aaa
