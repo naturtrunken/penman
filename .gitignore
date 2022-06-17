@@ -5,4 +5,4 @@
 postgres
 
 # Build script
-build_docker.sh
+publish.sh
