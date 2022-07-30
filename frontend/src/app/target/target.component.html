@@ -113,5 +113,89 @@
       </div>
     </section>
 
+
+    <section class="section mt-4">
+      <div class="row">
+        <div class="col">
+          <div class="alert alert-info">
+            <h6>Hint</h6>
+            <ul>
+              <li>Here you can organize your notes for this target.</li>
+              <li>On the top on the right side, you see the target's status. You can change it by clicking on it.
+              There are the following states:
+              <ul>
+                <li></li>
+              </ul>
+              </li>
+              <li>The tab bar contains sections for each pentesting stage from open source intelligence (OSINT) until
+                post exploitation.
+                <ul>
+                  <li><b>OSInt</b>:
+                    Add notes about the target which you discovered by passive enumeration.
+                    (You may not need all stages. For example, on platforms like HTB/PG/... you would skip this step.)</li>
+                  <li><b>Enumeration</b>
+                    <ul>
+                      <li>In the <b>General</b> tab, you can add general notes during enumeration which do not belong to a specific service. General nmap scans can be added here for example.</li>
+                      <li>In the <b>Services</b> tab you can manage the services (=ports) you found on the target. For each service, a new vertical tab is created on this page. There, you can add notes about this service.</li>
+                      <li>If you use the provided <code>set_target.sh</code> script on the command line, the script will automatically perform a nmap scan and add all found services via the API. Then you can directly start working on these ports without adding the services manually.</li>
+                    </ul>
+                  </li>
+                  <li><b>Privilege escalation</b>: As soon as you have terminal access, you switch to this tab and add now notes about your way to escalate from your current user to root (maybe via some other users in between).</li>
+                  <li><b>Post exploitation</b>: As soon as you are root, you can add here your notes/loot while analyzing the system.</li>
+                </ul>
+              </li>
+              <li>Additionally, there are two general tabs:
+                <ul>
+                  <li><b>General</b>
+                    <ul>
+                      <li>Here you can add general notes about the target which does not fit into a specific stage.</li>
+                      <li>You can also add <b>attack vectors</b>. These are notes about a software (version) you found
+                        on some port, a framework which you discovered, etc. Basically a list of possible entrypoints.
+                        You can collect this information there for an easy overview.
+                      </li>
+                      <li>You can also add <b>ideas</b>. This is a one-line note where you could add an idea you want to
+                        try later on. For example, if you see a login dialog during enumeration, you could add a note to
+                        try brute-force there later. This is your list you can go to if you're stuck.
+                      </li>
+                      <li>Attack vectors and ideas can be checked and unchecked via the checkmark on the right. If you
+                        tried something, you can mark this item as tried. Elements which are marked as tried can be
+                        deleted (but you don't have to).
+                      </li>
+                    </ul>
+                  </li>
+                  <li><b>Timeline</b>: Here you can see all notes in a chronological order. This is the story of your journey with this target.</li>
+                </ul>
+              </li>
+              <li>
+                All tabs contain the <b>Add block</b> box on the bottom.
+                <ul>
+                  <li>
+                    Via this form, you can add new notes.
+                    A note has multiple input fields.
+                    You can use only one or multiple at the same time.
+                    <ul>
+                      <li><b>Text</b>: Here you can add some text, e.g. something you tried.</li>
+                      <li><b>Raw output</b>: Here you can add raw output like a HTTP response or code, which is printed in a preformatted font.</li>
+                      <li><b>Checklist element</b>: Each line is converted into a checkbox element. You could add output from <i>searchsploit</i> and then have a checklist for each exploit you want to try out. Or some subtasks you want to do.</li>
+                      <li><b>Drag and drop files</b>: Drag and drop or click into the field to upload one or more images or files. Images are directly displayed. Files can be downloaded later.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>Each block has on the right side some symbols. Click on them to set / unset the flags.
+              <ul>
+                <li><b><i-feather name="eye"></i-feather></b>: Highlights this block</li>
+                <li><b><i-feather name="user"></i-feather></b>: Highlights as a user block - a note where you got (new) user privileges.</li>
+                <li><b><i-feather name="hash"></i-feather></b>: Highlights as a root block - set this if you got root in this step.</li>
+                <li><b><i-feather name="trash"></i-feather></b>: Deletes this block.</li>
+              </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
   </div>
 </div>
