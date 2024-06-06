@@ -5,7 +5,7 @@ import {ServiceResponse, ServicesResponse} from "../models/service";
 import {HttpClient} from "@angular/common/http";
 import {TranslateService} from "@ngx-translate/core";
 import {NotifyService} from "../notify.service";
-import {FormBuilder} from "@angular/forms";
+import {UntypedFormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-target-blocks-services-form',
@@ -43,7 +43,7 @@ export class TargetBlocksServicesFormComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private translate: TranslateService,
     private notifyService: NotifyService
   ) { }

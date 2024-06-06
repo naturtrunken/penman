@@ -4,7 +4,7 @@ import {BlockResponse} from "../models/block";
 import {HttpClient} from "@angular/common/http";
 import {TranslateService} from "@ngx-translate/core";
 import {NotifyService} from "../notify.service";
-import {FormBuilder, FormControl} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormControl} from "@angular/forms";
 import {FileUploadValidators} from '@iplab/ngx-file-upload';
 
 @Component({
@@ -14,7 +14,7 @@ import {FileUploadValidators} from '@iplab/ngx-file-upload';
 })
 export class TargetBlockNewComponent implements OnInit {
 
-  private filesControl = new FormControl(null, FileUploadValidators.filesLimit(AppConst.FILE_UPLOAD_MAX_ELEMENTS));
+  private filesControl = new UntypedFormControl(null, FileUploadValidators.filesLimit(AppConst.FILE_UPLOAD_MAX_ELEMENTS));
   blockForm = this.formBuilder.group({
     text: '',
     output: '',
@@ -39,7 +39,7 @@ export class TargetBlockNewComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private translate: TranslateService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private notifyService: NotifyService
   ) {
   }

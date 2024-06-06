@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ServicesResponse} from "../models/service";
 import {HttpResponseType} from "../interfaces/http-response";
 import {HttpClient} from "@angular/common/http";
-import {FormBuilder} from "@angular/forms";
+import {UntypedFormBuilder} from "@angular/forms";
 import {TranslateService} from "@ngx-translate/core";
 import {NotifyService} from "../notify.service";
 import {AppConst} from "../app.const";
@@ -47,7 +47,7 @@ export class TargetIdeasComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private translate: TranslateService,
     private notifyService: NotifyService,
     private confirmationDialogService: ConfirmationDialogService

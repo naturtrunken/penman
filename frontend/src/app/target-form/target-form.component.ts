@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpResponseType} from "../interfaces/http-response";
 import {TranslateService} from "@ngx-translate/core";
 import {HttpClient} from "@angular/common/http";
-import {FormBuilder} from "@angular/forms";
+import {UntypedFormBuilder} from "@angular/forms";
 import {AppService} from "../app.service";
 import {NotifyService} from "../notify.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -38,7 +38,7 @@ export class TargetFormComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     private http: HttpClient,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private appService: AppService,
     private notifyService: NotifyService,
     private router: Router,

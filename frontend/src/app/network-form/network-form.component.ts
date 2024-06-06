@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
-import {FormBuilder} from "@angular/forms";
+import {UntypedFormBuilder} from "@angular/forms";
 import {AppService} from "../app.service";
 import {AppConst} from "../app.const";
 import {NotifyService} from "../notify.service";
@@ -36,7 +36,7 @@ export class NetworkFormComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     private http: HttpClient,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private appService: AppService,
     private notifyService: NotifyService,
     private router: Router,

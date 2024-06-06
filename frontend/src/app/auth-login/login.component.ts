@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {AppService} from "../app.service";
 import {AppConst} from "../app.const";
-import {FormBuilder} from '@angular/forms';
+import {UntypedFormBuilder} from '@angular/forms';
 import {AuthService} from "../services/auth.service";
 import {NotifyService} from "../notify.service";
 
@@ -20,7 +20,7 @@ export class AuthLoginComponent implements OnInit {
   constructor(
     private translate: TranslateService,
     private appService: AppService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
     private notifyService: NotifyService
   ) {

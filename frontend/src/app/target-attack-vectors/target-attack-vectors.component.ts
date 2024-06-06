@@ -5,7 +5,7 @@ import {TranslateService} from "@ngx-translate/core";
 import {NotifyService} from "../notify.service";
 import {AppConst} from "../app.const";
 import {AttackVectorEntry, AttackVectorResponse, AttackVectorsResponse} from "../models/attack_vector";
-import {FormBuilder} from "@angular/forms";
+import {UntypedFormBuilder} from "@angular/forms";
 import {ServicesResponse} from "../models/service";
 import {ConfirmationDialogService} from "../services/confirmation-dialog.service";
 
@@ -47,7 +47,7 @@ export class TargetAttackVectorsComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private translate: TranslateService,
     private notifyService: NotifyService,
     private confirmationDialogService: ConfirmationDialogService
