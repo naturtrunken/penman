@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.3.0 2024-06-06
+
+* Ruby, Rails + Angular upgrades
+
+## v1.2.0 2022-06-30
+
+* Added hint boxes.
+
 ## v1.1.0 2022-06-17
 
 * Redirection added from the dashboard for non-logged-in users.
