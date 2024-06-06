@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ServicesResponse} from "../models/service";
 import {AppConst} from "../app.const";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {TranslateService} from "@ngx-translate/core";
 import {NotifyService} from "../notify.service";
 

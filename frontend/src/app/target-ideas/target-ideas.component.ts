@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ServicesResponse} from "../models/service";
 import {HttpResponseType} from "../interfaces/http-response";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {UntypedFormBuilder} from "@angular/forms";
 import {TranslateService} from "@ngx-translate/core";
 import {NotifyService} from "../notify.service";

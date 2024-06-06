@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {AppConst} from "../app.const";
 import {HttpResponseType} from "../interfaces/http-response";
 import {BlocksResponse} from "../models/block";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-target-blocks-standard',

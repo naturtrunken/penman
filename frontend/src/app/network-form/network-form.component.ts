@@ -6,7 +6,7 @@ import {AppConst} from "../app.const";
 import {NotifyService} from "../notify.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NetworkResponse} from "../models/network";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {HttpResponseType} from "../interfaces/http-response";
 import {ConfirmationDialogService} from "../services/confirmation-dialog.service";
 

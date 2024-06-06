@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {AppConst} from "../app.const";
 import {NetworksResponse} from "../models/network";
 import {AppVarsService} from "../app-vars.service";

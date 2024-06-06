@@ -1,8 +1,5 @@
 import {Injectable} from '@angular/core';
-import {
-  HttpEvent, HttpRequest, HttpHandler,
-  HttpInterceptor, HttpResponse
-} from '@angular/common/http';
+import { HttpEvent, HttpRequest, HttpHandler, HttpInterceptor, HttpResponse } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map, retry} from 'rxjs/operators';
 import {AppConst} from "../app.const";

@@ -8,7 +8,7 @@ import { AuthLoginComponent } from './auth-login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import {NotifyService} from "./notify.service";
 import {HttpRequestInterceptor} from "./middleware/http-request-interceptor";
 import {AppService} from "./app.service";
@@ -66,78 +66,72 @@ const routes: Routes = [
   }
 ];
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    IndexComponent,
-    LayoutComponent,
-    AuthLoginComponent,
-    AuthRegisterComponent,
-    LayoutHeaderComponent,
-    DashboardComponent,
-    NetworkFormComponent,
-    TargetFormComponent,
-    TargetComponent,
-    TargetBlocksStandardComponent,
-    TargetBlockNewComponent,
-    TargetBlocksServicesComponent,
-    TargetBlocksServicesFormComponent,
-    TargetTimelineComponent,
-    SettingsComponent,
-    SettingsApiKeyComponent,
-    TargetAttackVectorsComponent,
-    TargetGeneralComponent,
-    TargetIdeasComponent,
-    TargetBlockStandardComponent,
-    ConfirmationDialogComponent
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes),
-    NgbModule,
-    IconsModule,
-    HttpClientModule,
-    NgSelectModule,
-    FormsModule,
-    FileUploadModule,
-    GalleryModule,
-    BrowserAnimationsModule,
-    LightboxModule.withConfig({
-      panelClass: 'fullscreen'
-    }),
-    NotifierModule.withConfig({
-      "position": {
-        "horizontal": {
-          "position": "right",
-          "distance": 20
+@NgModule({ declarations: [
+        AppComponent,
+        IndexComponent,
+        LayoutComponent,
+        AuthLoginComponent,
+        AuthRegisterComponent,
+        LayoutHeaderComponent,
+        DashboardComponent,
+        NetworkFormComponent,
+        TargetFormComponent,
+        TargetComponent,
+        TargetBlocksStandardComponent,
+        TargetBlockNewComponent,
+        TargetBlocksServicesComponent,
+        TargetBlocksServicesFormComponent,
+        TargetTimelineComponent,
+        SettingsComponent,
+        SettingsApiKeyComponent,
+        TargetAttackVectorsComponent,
+        TargetGeneralComponent,
+        TargetIdeasComponent,
+        TargetBlockStandardComponent,
+        ConfirmationDialogComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        RouterModule.forRoot(routes),
+        NgbModule,
+        IconsModule,
+        NgSelectModule,
+        FormsModule,
+        FileUploadModule,
+        GalleryModule,
+        BrowserAnimationsModule,
+        LightboxModule.withConfig({
+            panelClass: 'fullscreen'
+        }),
+        NotifierModule.withConfig({
+            "position": {
+                "horizontal": {
+                    "position": "right",
+                    "distance": 20
+                },
+                "vertical": {
+                    "position": "top",
+                    "distance": 110
+                },
+            }
+        }),
+        TranslateModule.forRoot({
+            defaultLanguage: 'en',
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        ReactiveFormsModule], providers: [
+        Title,
+        AppService,
+        NotifyService,
+        ConfirmationDialogService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpRequestInterceptor,
+            multi: true
         },
-        "vertical": {
-          "position": "top",
-          "distance": 110
-        },
-      }
-    }),
-    TranslateModule.forRoot({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    }),
-    ReactiveFormsModule,
-  ],
-  providers: [
-    Title,
-    AppService,
-    NotifyService,
-    ConfirmationDialogService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpRequestInterceptor,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
-})
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }

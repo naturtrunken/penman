@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {AppService} from "../app.service";
 import {NotifyService} from "../notify.service";
 import {ApiKeyResponse} from "../models/api_key";

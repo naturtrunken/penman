@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AppConst} from "../app.const";
 import {BlockResponse} from "../models/block";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {TranslateService} from "@ngx-translate/core";
 import {NotifyService} from "../notify.service";
 import {UntypedFormBuilder, UntypedFormControl} from "@angular/forms";

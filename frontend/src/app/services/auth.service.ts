@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {AppConst} from "../app.const";
 import {AuthDataLoginResponse} from "./auth.interfaces";
