@@ -105,5 +105,8 @@
       }
     }
   },
-  "defaultProject": "penman"
+  "defaultProject": "penman",
+  "cli": {
+    "analytics": false
+  }
 }
