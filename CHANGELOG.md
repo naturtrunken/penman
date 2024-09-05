@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.4.0 2024-09-05
+
+* Rails + Angular upgrades
+
 ## v1.3.0 2024-06-06
 
 * Ruby, Rails + Angular upgrades
