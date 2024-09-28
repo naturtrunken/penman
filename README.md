@@ -15,6 +15,7 @@ Prerequisites: Make sure that the Docker daemon is running.
 ```shell
 mkdir penman && cd penman
 wget https://raw.githubusercontent.com/naturtrunken/penman/main/docker-compose.yml
+vi docker-compose.yml # Set SECRET_KEY_BASE to an alphanumeric string with at least 30 characters.
 docker-compose up # Or "docker compose up", depending how you installed compose.
 ```
 

@@ -9,7 +9,7 @@ services:
      - POSTGRES_PASSWORD=penman
      - POSTGRES_DB=penman
     volumes:
-      - ./postgres:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
       interval: 3s
@@ -22,9 +22,13 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    environment:
+      - SECRET_KEY_BASE=PLEASE_CHANGE_THE_SECRET_KEY
   frontend:
     image: penman/penman-frontend:latest
     ports:
       - "8080:80"
     depends_on:
       - backend
+volumes:
+  postgres_data:

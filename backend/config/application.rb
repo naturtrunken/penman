@@ -23,6 +23,10 @@ module Penman
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    if ENV['SECRET_KEY_BASE'] == 'PLEASE_CHANGE_THE_SECRET_KEY'
+      raise 'SECRET_KEY_BASE is not set properly. Please set it before running the application with a random alphanumeric string with at least 30 characters.'
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
