@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.0 2024-09-28
+
+* Fixed reloading issue with Angular Frontend.
+* Fixed image reloading issue.
+* Added SECRET_KEY_BASE environment variable to the main Dockerfile.
+
 ## v1.4.0 2024-09-05
 
 * Rails + Angular upgrades
