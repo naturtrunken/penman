@@ -14,6 +14,8 @@ FROM nginx:1.27
 WORKDIR /penman
 # This copies the compiled Angular app *from the other container* in the Nginx container.
 COPY --from=frontend-build /penman/dist/penman/ /usr/share/nginx/html
+# Copy the custom nginx configuration
+COPY deployment/docker/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Configure the main process to run when running the image
 CMD ["nginx", "-g", "daemon off;"]
