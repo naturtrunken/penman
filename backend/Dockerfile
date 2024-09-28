@@ -1,6 +1,6 @@
 # Build Rails application
 FROM ruby:3.2.4
-RUN apt-get update -qq && apt-get install -y postgresql-client
+RUN apt-get update -qq && apt-get install -y postgresql-client libvips
 WORKDIR /penman
 COPY . .
 COPY config/database.yml.template config/database.yml
